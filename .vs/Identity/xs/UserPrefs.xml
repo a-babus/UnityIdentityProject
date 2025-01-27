@@ -1,5 +1,8 @@
 ﻿<Properties StartupConfiguration="{10DED4C3-7DE7-9C8D-862C-A7CE33A6355F}|">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameRespawn.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameRespawn.cs" Line="18" Column="55" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
