@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{10DED4C3-7DE7-9C8D-862C-A7CE33A6355F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameRespawn.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AkiDevCat/MicroAVL/Editor/MicroAVLShaderGUI.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameRespawn.cs" Line="18" Column="55" />
+      <File FileName="Assets/AkiDevCat/MicroAVL/Editor/MicroAVLShaderGUI.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/GameRespawn.cs" Line="24" Column="62" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +14,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8af2276f-ce04-4cc2-8887-b5b2949328ac" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dd5fac05-b854-414c-b953-ecb135180006" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
