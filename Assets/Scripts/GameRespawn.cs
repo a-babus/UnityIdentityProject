@@ -14,7 +14,7 @@ public class GameRespawn : MonoBehaviour
         if (transform.position.y < threshold)
         {
             audioManager.PlaySFX(audioManager.failedFromPlatform);
-            transform.position = new Vector3(-40.15865f, 1.9996f, 0f);
+            transform.position = new Vector3(-40.15865f, 18.75898f, -83.2605f);
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
