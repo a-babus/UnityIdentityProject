@@ -49,6 +49,8 @@ namespace NTGD124
         [Tooltip("Triggered when player performs the interaction")]
         public UnityEvent OnInteraction;
 
+        [SerializeField] private GameObject MessageToDisplay;
+
         ///// Private Variables /////
         private BoxCollider _triggerCollider;
         private bool _isPlayerInside;
@@ -58,6 +60,7 @@ namespace NTGD124
         private static int numberOfItemsCollected = 0;
         private int totalPossibleNumberOfItemsCollected = 2;
 
+        private bool doorsOpen = false;
 
         AudioManager audioManager;
 
@@ -117,11 +120,17 @@ namespace NTGD124
 
         private void HandleInteraction()
         {
+            numberOfItemsCollected++;
+            if (numberOfItemsCollected == 1 && !doorsOpen)
+            {
+                DesactivateDoors();
+               // StartCoroutine(ShowAndHideMessage());
+            }
+
             OnInteraction?.Invoke();
             _currentZoneColor = ActiveZoneColor;
             audioManager.PlaySFX(audioManager.itemCollected);
 
-            numberOfItemsCollected++;
             Debug.Log($"Interaction triggered: {gameObject.name}");
             if (numberOfItemsCollected == totalPossibleNumberOfItemsCollected)
             {
@@ -134,7 +143,7 @@ namespace NTGD124
                 OnEventUnavailable?.Invoke();
 
                 // Optional: disable the game object after one-shot interaction
-                // gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
 
             
@@ -174,6 +183,26 @@ namespace NTGD124
                 _triggerCollider.center,
                 Vector3.Scale(_triggerCollider.size, new Vector3(0.99f, 0.99f, 0.99f))
             );
+        }
+
+        private void DesactivateDoors()
+        {
+            GameObject obj = GameObject.Find("Doors");
+            if (obj != null)
+            {
+                obj.SetActive(false);
+                doorsOpen = true;
+                Debug.Log("Doors disapeared");
+            }
+        }
+
+        private IEnumerator ShowAndHideMessage()
+        {
+            Debug.Log("Trying to open the doors");
+            MessageToDisplay.SetActive(true); 
+            yield return new WaitForSeconds(0.01f);
+            MessageToDisplay.SetActive(false);
+            
         }
 
         public void DisplayWinScreen()

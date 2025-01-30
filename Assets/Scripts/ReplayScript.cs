@@ -17,6 +17,7 @@ public class ReplayScript : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.Log("Time's over");
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         audioManager.PlaySFX(audioManager.gameOver);
         DontDestroyOnLoad(audioManager.gameObject);
