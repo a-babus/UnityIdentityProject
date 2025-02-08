@@ -121,12 +121,10 @@ namespace NTGD124
         private void HandleInteraction()
         {
             numberOfItemsCollected++;
-            if (numberOfItemsCollected == 1 && !doorsOpen)
+            if (numberOfItemsCollected == 1)
             {
-                DesactivateDoors();
-               // StartCoroutine(ShowAndHideMessage());
+                HideDoors();
             }
-
             OnInteraction?.Invoke();
             _currentZoneColor = ActiveZoneColor;
             audioManager.PlaySFX(audioManager.itemCollected);
@@ -143,7 +141,7 @@ namespace NTGD124
                 OnEventUnavailable?.Invoke();
 
                 // Optional: disable the game object after one-shot interaction
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
             }
 
             
@@ -185,24 +183,20 @@ namespace NTGD124
             );
         }
 
-        private void DesactivateDoors()
+        private void HideDoors()
         {
-            GameObject obj = GameObject.Find("Doors");
-            if (obj != null)
-            {
-                obj.SetActive(false);
-                doorsOpen = true;
-                Debug.Log("Doors disapeared");
-            }
-        }
+            string targetTag = "OpenDoors";
+            GameObject targetObject = GameObject.FindGameObjectWithTag(targetTag);
 
-        private IEnumerator ShowAndHideMessage()
-        {
-            Debug.Log("Trying to open the doors");
-            MessageToDisplay.SetActive(true); 
-            yield return new WaitForSeconds(0.01f);
-            MessageToDisplay.SetActive(false);
-            
+            if (targetObject != null)
+            {
+                targetObject.SetActive(false); 
+                Debug.Log($"{targetTag} object is now not visible.");
+            }
+            else
+            {
+                Debug.LogWarning($"No object found with tag: {targetTag}");
+            }
         }
 
         public void DisplayWinScreen()
